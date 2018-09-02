@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_main_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <!--日期-->
+    <Button
+        android:id="@+id/btn_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="选择日期"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/text_date"
+        android:onClick="showDatePicker"/>
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="显示日期"
+        app:layout_constraintBottom_toBottomOf="@id/btn_date"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintLeft_toRightOf="@id/btn_date"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_date" />
+
+    <!--时间-->
+    <Button
+        android:id="@+id/btn_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="选择时间"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="@id/btn_date"
+        app:layout_constraintRight_toLeftOf="@id/text_time"
+        app:layout_constraintTop_toBottomOf="@id/btn_date"
+        android:onClick="showTimePicker"/>
+
+    <TextView
+        android:id="@+id/text_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:text="显示时间"
+
+        app:layout_constraintBottom_toBottomOf="@id/btn_time"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintLeft_toRightOf="@id/btn_time"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_time" />
+
+    <!--通话时长-->
+    <EditText
+        android:id="@+id/editText_lastTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_time"
+        android:hint="输入通话时长（秒）"/>
+
+    <!--联系人信息-->
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="姓名"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_selectContact"
+        app:layout_constraintEnd_toStartOf="@+id/text_phone"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_lastTime" />
+
+    <TextView
+        android:id="@+id/text_phone"
+        android:layout_width="0dp"
+        android:layout_height="17dp"
+        android:layout_marginBottom="8dp"
+        android:text="电话"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_selectContact"
+        app:layout_constraintEnd_toStartOf="@+id/btn_selectContact"
+        app:layout_constraintHorizontal_weight="5"
+        app:layout_constraintStart_toEndOf="@+id/text_name"
+        app:layout_constraintTop_toBottomOf="@+id/editText_lastTime" />
+
+    <Button
+        android:id="@+id/btn_selectContact"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="选择联系人"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toEndOf="@+id/text_phone"
+        app:layout_constraintTop_toBottomOf="@+id/editText_lastTime"
+        android:onClick="chooseContact"/>
+
+    <Button
+        android:id="@+id/btn_write"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确定"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="writeCallLog"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_selectContact"
+        >
+
+        <RadioButton
+            android:id="@+id/radio_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="呼入" />
+
+        <RadioButton
+            android:id="@+id/radio_output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="呼出" />
+    </RadioGroup>
+
+</android.support.constraint.ConstraintLayout>
